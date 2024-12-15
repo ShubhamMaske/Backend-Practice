@@ -43,6 +43,13 @@ app.get('/api/jokes', (req, res) => {
     res.send(jokes)
 })
 
+app.use((req, res) => {
+    res.status(404).json({
+        status: "error",
+        message: "Oops! The page you are looking for does not exist"
+    })
+})
+
 app.listen(port, ()=> {
     console.log(`server is listening on port ${port}`)
 })
